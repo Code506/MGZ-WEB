@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Home Electrical Layout Designer</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://unpkg.com/three@0.160.1/build/three.min.js"></script>
+  <script src="https://unpkg.com/three@0.160.1/examples/js/controls/OrbitControls.js"></script>
+</head>
+<body>
+  <header>
+    <h1>Home Electrical Layout Designer</h1>
+    <p>Load your room shell, then place receptacles, lights, fixtures, and appliance plugs in 3D.</p>
+  </header>
+
+  <main>
+    <aside class="panel">
+      <section>
+        <h2>1) Build layout shell</h2>
+        <label>Room width (m)
+          <input id="roomWidth" type="number" min="2" max="30" step="0.5" value="10" />
+        </label>
+        <label>Room depth (m)
+          <input id="roomDepth" type="number" min="2" max="30" step="0.5" value="8" />
+        </label>
+        <label>Wall height (m)
+          <input id="wallHeight" type="number" min="2" max="8" step="0.1" value="3" />
+        </label>
+        <button id="createLayout">Create / Reset Layout</button>
+      </section>
+
+      <section>
+        <h2>2) Add electrical component</h2>
+        <div class="component-grid" id="componentGrid"></div>
+      </section>
+
+      <section>
+        <h2>3) Tips</h2>
+        <ul>
+          <li>Click a component card to select what to place.</li>
+          <li>Click inside the 3D room to place that component.</li>
+          <li>Drag an existing component to reposition it.</li>
+          <li>Press <kbd>Delete</kbd> to remove selected component.</li>
+        </ul>
+      </section>
+    </aside>
+
+    <section class="viewer">
+      <canvas id="scene"></canvas>
+      <div class="status" id="status">Selected tool: Receptacle (120V)</div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
